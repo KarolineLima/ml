@@ -42,85 +42,107 @@ for train_index, test_index in kf.split(X,y):
   y_train.append(y[train_index])
   y_test.append(y[test_index])
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 #########
 ## kMeans
 #########
-print("###    kMeans   ###") 
+print(f"{bcolors.WARNING}###    kMeans{bcolors.ENDC}") 
 results, show = runKMeans(X_train, y_train, X_test, y_test)
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.WARNING}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.WARNING}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.WARNING}###    média{bcolors.ENDC}") 
+print(f"{bcolors.WARNING}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
 #########
 ## kNN ##
 #########
-print("###    kNN 5   ###") 
+print(f"{bcolors.OKBLUE}###    kNN 5{bcolors.ENDC}") 
 results, show = runKNN(X_train, y_train, X_test, y_test, 5)
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKBLUE}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    {show}%{bcolors.ENDC}") 
 print("")
 
-print("###    kNN 10   ###") 
+print(f"{bcolors.OKBLUE}###    kNN 10{bcolors.ENDC}") 
 results, show = runKNN(X_train, y_train, X_test, y_test, 10)
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKBLUE}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKBLUE}###    {show}%{bcolors.ENDC}") 
 print("")
+print("")
+
 #########
 ## MLP###
 #########
-print("###    MLP TAHN 3,2   ###") 
+print(f"{bcolors.OKGREEN}###    MLP TAHN 3,2{bcolors.ENDC}") 
 results, show = runMLP(X_train, y_train, X_test, y_test, 3, 2, 'tanh')
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKGREEN}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
-print("###    MLP TAHN 4,3   ###")  
+print(f"{bcolors.OKGREEN}###    MLP TAHN 4,3{bcolors.ENDC}") 
 results, show = runMLP(X_train, y_train, X_test, y_test, 4, 3, 'tanh')
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKGREEN}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
-print("###    MLP RELU 3,2   ###")  
+print(f"{bcolors.OKGREEN}###    MLP Relu 3,2{bcolors.ENDC}") 
 results, show = runMLP(X_train, y_train, X_test, y_test, 3, 2, 'relu')
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKGREEN}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
-print("###    MLP RELU 4,3   ###")  
+print(f"{bcolors.OKGREEN}###    MLP Relu 4,3{bcolors.ENDC}") 
 results, show = runMLP(X_train, y_train, X_test, y_test, 4, 3, 'relu')
-print("RESULTADOS")
-print(results)
-print("MÉDIA")
-print("{}%".format(show))
+print(f"{bcolors.OKGREEN}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    média{bcolors.ENDC}") 
+print(f"{bcolors.OKGREEN}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
 ##############
 ##searchTree##
 ##############
-print("###    SEARCH TREE GINI  ###")
+print(f"{bcolors.HEADER}###    Search Tree Gini{bcolors.ENDC}") 
 results, show = runSearchTree(X_train, y_train, X_test, y_test, "gini")
-print("RESULTADOS GINI")
-print(results)
-print("MÉDIA GINI")
-print("{}%".format(show))
+print(f"{bcolors.HEADER}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    média{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    {show}%{bcolors.ENDC}") 
+print("")
 print("")
 
-print("###    SEARCH TREE ENTROPY  ###")
+
+print(f"{bcolors.HEADER}###    Search Tree Entropy{bcolors.ENDC}") 
 results, show = runSearchTree(X_train, y_train, X_test, y_test, "entropy")
-print("RESULTADOS ENTROPY")
-print(results)
-print("MÉDIA ENTROPY")
-print("{}%".format(show))
+print(f"{bcolors.HEADER}###    resultados{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    {results}{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    média{bcolors.ENDC}") 
+print(f"{bcolors.HEADER}###    {show}%{bcolors.ENDC}") 
 print("")
+print("")
+
