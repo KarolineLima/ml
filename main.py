@@ -8,15 +8,26 @@ from algoritmos.searchTree import runSearchTree
 from algoritmos.kNN import runKNN
 from algoritmos.kMeans import runKMeans
 
-url = "https://raw.githubusercontent.com/tmoura/machinelearning/master/iris.data"
 
-# Carregar base de dados
-dataset = pd.read_csv(url, header=None)
+## Carregar base de dados: haberman
+# url = "https://raw.githubusercontent.com/fricaro/ml/development/bases/haberman.data"
+# dataset = pd.read_csv(url, sep=",", header=None)
+
+## Carregar base de dados: breast cancer
+url = "https://raw.githubusercontent.com/fricaro/ml/development/bases/breast%20cancer%20coimbra.csv"
+dataset = pd.read_csv(url, sep=",", header=None)
+
+## Carregar base de dados: divorce
+# url = "https://raw.githubusercontent.com/fricaro/ml/development/bases/divorce.csv"
+# dataset = pd.read_csv(url, sep=";", header=None)
+
+##
 
 columns = len(dataset.columns)
 
-y = dataset[0] # extrai a primeira coluna, que é o label
-X = dataset.loc[:,1:columns-1]
+y = dataset[columns-1] # extrai a primeira coluna, que é o label
+
+X = dataset.loc[:,1:columns-2]
 
 # Transforma para Array NumPy
 X = np.array(X)
@@ -26,7 +37,7 @@ y = np.array(y)
 
 folds = 10
 
-kf = StratifiedKFold(n_splits = folds)
+kf = StratifiedKFold(n_splits = folds, shuffle=True, random_state=100)
 
 ## 10 conjuntos de dados
 X_train = []

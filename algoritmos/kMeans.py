@@ -41,6 +41,8 @@ def runKMeans(X_train, y_train, X_test, y_test, folds=10):
         value = final.most_common(1)[0][0] # retorna a classe com maior frequência
         mapping[i] = value
 
+      # Resultado
+
       result = model.predict(X_test[i])
       result = [mapping[i] for i in result]
 
